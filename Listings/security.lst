@@ -1,0 +1,172 @@
+C51 COMPILER V9.56.0.0   SECURITY                                                          06/09/2024 11:04:11 PAGE 1   
+
+
+C51 COMPILER V9.56.0.0, COMPILATION OF MODULE SECURITY
+OBJECT MODULE PLACED IN .\Objects\security.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE security.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\
+                    -security.lst) TABS(2) OBJECT(.\Objects\security.obj)
+
+line level    source
+
+   1          #include<reg51.h>
+   2          #include<lcd.h>
+   3          #include<string.h>
+   4          
+   5          sbit r1=P1^0;
+   6          sbit r2=P1^1;
+   7          sbit r3=P1^2;
+   8          sbit r4=P1^3;
+   9          sbit c1=P1^4;
+  10          sbit c2=P1^5;
+  11          sbit c3=P1^6;
+  12          char a[]={"1234"};
+  13          char b[4];
+  14          int n=0;
+  15          int val;
+  16          void main()
+  17          { 
+  18   1        lcd_init();
+  19   1        //lcd_string("hi");
+  20   1      
+  21   1        while(1)
+  22   1        {
+  23   2          if(n<=3)
+  24   2          {
+  25   3        r1=r2=r3=r4=c1=c2=c3=1;
+  26   3        r1=0;
+  27   3        if(c1==0)
+  28   3        {
+  29   4          lcd_data('1');
+  30   4          b[n]='1';
+  31   4          n++;
+  32   4          delay(200);
+  33   4          
+  34   4        }
+  35   3        else if(c2==0)
+  36   3        {
+  37   4        lcd_data('2');
+  38   4          b[n]='2';
+  39   4          n++;
+  40   4        delay(200);
+  41   4        }
+  42   3       else if(c3==0)
+  43   3        {
+  44   4        lcd_data('3');
+  45   4          b[n]='3';
+  46   4          n++;
+  47   4        delay(200);
+  48   4        }
+  49   3        r1=r2=r3=r4=c1=c2=c3=1;
+  50   3        r2=0;
+  51   3        if(c1==0)
+  52   3        {
+  53   4          lcd_data('4');
+  54   4          b[n]='4';
+C51 COMPILER V9.56.0.0   SECURITY                                                          06/09/2024 11:04:11 PAGE 2   
+
+  55   4          n++;
+  56   4          delay(200);
+  57   4        }
+  58   3        else if(c2==0)
+  59   3        {
+  60   4        lcd_data('5');
+  61   4          b[n]='5';
+  62   4          n++;
+  63   4        delay(200);
+  64   4        }
+  65   3       else if(c3==0)
+  66   3        {
+  67   4        lcd_data('6');
+  68   4          b[n]='6';
+  69   4          n++;
+  70   4        delay(200);
+  71   4        }
+  72   3        r1=r2=r3=r4=c1=c2=c3=1;
+  73   3        r3=0;
+  74   3        if(c1==0)
+  75   3        {
+  76   4          lcd_data('7');
+  77   4          b[n]='7';
+  78   4          n++;
+  79   4          delay(200);
+  80   4        }
+  81   3        else if(c2==0)
+  82   3        {
+  83   4        lcd_data('8');
+  84   4          b[n]='8';
+  85   4          n++;
+  86   4        delay(200);
+  87   4        }
+  88   3       else if(c3==0)
+  89   3        {
+  90   4        lcd_data('9');
+  91   4          b[n]='9';
+  92   4          n++;
+  93   4        delay(200);
+  94   4        }
+  95   3      r1=r2=r3=r4=c1=c2=c3=1;
+  96   3        r4=0;
+  97   3        if(c2==0)
+  98   3        { 
+  99   4          lcd_data('0');
+ 100   4          b[n]='0';
+ 101   4          n++;
+ 102   4          delay(200);
+ 103   4        }
+ 104   3      }
+ 105   2        else 
+ 106   2          {
+ 107   3          val=strncmp(a,b,4);
+ 108   3            if(val==0)
+ 109   3              
+ 110   3            {
+ 111   4             lcd_cmd(0x01);
+ 112   4             lcd_cmd(0x80);
+ 113   4              lcd_string("Access Granted");
+ 114   4            }
+ 115   3           if(val>0||val<0)
+ 116   3           {
+C51 COMPILER V9.56.0.0   SECURITY                                                          06/09/2024 11:04:11 PAGE 3   
+
+ 117   4             lcd_cmd(0x01);
+ 118   4             lcd_cmd(0x80);
+ 119   4              lcd_string("Access Denied");     
+ 120   4           
+ 121   4           
+ 122   4           }
+ 123   3        } 
+ 124   2      
+ 125   2      }
+ 126   1      }
+ 127          
+ 128          
+ 129          
+ 130          
+ 131          
+ 132          
+ 133          
+ 134          
+ 135          
+ 136          
+ 137          
+ 138          
+ 139          
+ 140          
+ 141          
+ 142            
+ 143            
+ 144          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    586    ----
+   CONSTANT SIZE    =     29    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     13       5
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
